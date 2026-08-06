@@ -1,47 +1,34 @@
 # grow_cap
 
-A generic open-hardware cap for small, gravity-driven nutrient-cycling experiments.
+Open hardware for a gravity-separated plant cap with two physically independent water paths and a removable biological nutrient-processing stack.
 
-![grow_cap v0.1 overview](renders/grow_cap_overview.svg)
+![grow_cap v0.2 engineering cutaway](renders/grow_cap_v0.2_engineering.svg)
 
-`grow_cap` keeps two water paths physically independent:
+## The machine
 
-- **clean path:** known water enters a dedicated funnel and leaves through its own tube;
-- **transformed path:** water passes through a removable mesh-lined biological basket, is collected by a separate sump, and leaves through a second tube.
+**Clean water** bypasses the biological processor in a dedicated tube and reaches the root zone unchanged.
 
-The paths do not join inside the printed cap. Version 0.1 tests geometry, gravity, leakage, serviceability, and measurement before introducing a valuable plant, compost, worms, sensors, or agent control.
+**Dirty or organic-bearing water** moves by gravity through:
 
-## Print at IdeaSpace
+`mulch prefilter → mesh → worm/microbial chamber → biochar → collector → metered nutrient outlet → roots`
 
-Open [`docs/BAMBU_A1_BUILD.md`](docs/BAMBU_A1_BUILD.md). Print in this order:
+The streams do not share plumbing. A visible overflow must fail outward before the biological stream can contaminate the clean-water interface.
 
-1. fit coupon;
-2. funnel, sump, basket, and collar;
-3. full cap only after checking actual fit.
+## Repository status
 
-## Nominal geometry
+- `v0.1`: dimensional isolation fixture; retained as historical prototype.
+- `v0.2`: restored nutrient-cycling architecture based on the original cutaway and design discussion.
 
-| Interface | Nominal size |
-|---|---:|
-| Cap diameter | 140 mm |
-| Cap thickness | 5 mm |
-| Plant opening | 38 mm |
-| Clean funnel spigot | 7 mm OD / 4 mm bore |
-| Dirty sump body | 42 mm OD |
-| Dirty drain opening | 8.2 mm |
-| Biological basket | 34.5 mm OD |
-| Split collar stem opening | 14 mm |
+Start with:
 
-The manufacturing meshes are generated from [`cad/generate_grow_cap.py`](cad/generate_grow_cap.py). The first print pack is also available separately for the initial IdeaSpace session.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- [`docs/BAMBU_A1_BUILD_V0_2.md`](docs/BAMBU_A1_BUILD_V0_2.md)
+- [`cad/grow_cap_v0_2.scad`](cad/grow_cap_v0_2.scad)
 
 ## Collaboration boundary
 
-This repository does not claim or rename anyone else's project. It is a generic physical-design workspace intended to interoperate with neighboring plant-agent, verification, and coordination experiments when collaborators choose to build together. See [`docs/RELATED_WORK.md`](docs/RELATED_WORK.md).
+This repository is intentionally generic. It does not claim or absorb AlwaysHungrie's Tumbuh/OmegaClaw work. The projects may develop a gradient of shared interfaces and experiments where collaboration is welcome and mutually agreed.
 
-## Status
+## Licensing
 
-**Experimental dimensional prototype.** Not certified for potable water, food contact, pressure, medical use, unattended irrigation, or long-term outdoor deployment.
-
-## License
-
-Hardware source and manufacturing files: CERN-OHL-P-2.0. Documentation and renders: CC BY 4.0.
+Hardware source and generated manufacturing files: CERN-OHL-P-2.0. Documentation and renders: CC BY 4.0.
